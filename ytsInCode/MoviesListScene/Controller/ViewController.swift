@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var presenter : MoviesPresenter!
+    var moviesNumber : Int = 0
+    
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = UICollectionView.ScrollDirection.vertical
@@ -23,7 +26,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.title = "YTS Movies"
         configreCollectionView()
+        presenter = MoviesPresenter(delegate: self)
+        presenter.viewDidLoad()
     }
+    
     func configreCollectionView ()
     {
         view.addSubview(collectionView)
@@ -39,7 +45,7 @@ class ViewController: UIViewController {
 
 extension ViewController : UICollectionViewDataSource , UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return moviesNumber
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -50,4 +56,24 @@ extension ViewController : UICollectionViewDataSource , UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width/2, height: 250)
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.navigationController?.pushViewController(MovieDetailsViewController(), animated: true)
+    }
+}
+
+extension UINavigationController {
+    open override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
+}
+extension ViewController : Movies{
+    func getMoviesNumber(movies: Int) {
+        moviesNumber = movies
+    }
+    
+    func getMoviesImages(moviesURL: String) {
+        
+    }
+    
+    
 }

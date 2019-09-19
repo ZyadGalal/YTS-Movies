@@ -19,10 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         let navigationController = UINavigationController(rootViewController: rootViewController)
         navigationController.navigationBar.barTintColor = .black
         navigationController.navigationBar.tintColor = .white
+        let navigationControllerTextAttribute = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        navigationController.navigationBar.titleTextAttributes = navigationControllerTextAttribute
         rootViewController.view.backgroundColor = .black
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
-
+        UIApplication.shared.statusBarStyle = .lightContent
         return true
     }
 
