@@ -19,6 +19,7 @@
 		328D8EF023339E6600FB2DCC /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328D8EEF23339E6600FB2DCC /* Rating.swift */; };
 		328D8EF22333A82500FB2DCC /* MoviesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328D8EF12333A82500FB2DCC /* MoviesPresenter.swift */; };
 		328D8EFA2333ACF700FB2DCC /* MovieDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328D8EF92333ACF700FB2DCC /* MovieDetailsPresenter.swift */; };
+		328D8EFE2333B03500FB2DCC /* MoviesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328D8EFD2333B03500FB2DCC /* MoviesListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		328D8EEF23339E6600FB2DCC /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		328D8EF12333A82500FB2DCC /* MoviesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesPresenter.swift; sourceTree = "<group>"; };
 		328D8EF92333ACF700FB2DCC /* MovieDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsPresenter.swift; sourceTree = "<group>"; };
+		328D8EFD2333B03500FB2DCC /* MoviesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 		328D8EF32333AC8700FB2DCC /* MoviesListScene */ = {
 			isa = PBXGroup;
 			children = (
+				328D8EFC2333B01C00FB2DCC /* Model */,
 				328D8EF62333ACC900FB2DCC /* presenter */,
 				328D8EF52333ACC300FB2DCC /* Controller */,
 			);
@@ -194,6 +197,14 @@
 				328685F52330B7D7009B77EF /* UIView + ext.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		328D8EFC2333B01C00FB2DCC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				328D8EFD2333B03500FB2DCC /* MoviesListModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,6 +339,7 @@
 			files = (
 				328D8EF22333A82500FB2DCC /* MoviesPresenter.swift in Sources */,
 				328D8EF023339E6600FB2DCC /* Rating.swift in Sources */,
+				328D8EFE2333B03500FB2DCC /* MoviesListModel.swift in Sources */,
 				328D8EEE2333869300FB2DCC /* MovieDetailsViewController.swift in Sources */,
 				328685CA2330AB42009B77EF /* ViewController.swift in Sources */,
 				328D8EFA2333ACF700FB2DCC /* MovieDetailsPresenter.swift in Sources */,
