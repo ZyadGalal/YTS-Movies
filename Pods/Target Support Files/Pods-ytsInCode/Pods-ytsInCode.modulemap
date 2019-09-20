@@ -1,0 +1,6 @@
+framework module Pods_ytsInCode {
+  umbrella header "Pods-ytsInCode-umbrella.h"
+
+  export *
+  module * { export * }
+}

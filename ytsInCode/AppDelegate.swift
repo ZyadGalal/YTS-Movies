@@ -15,12 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let rootViewController = ViewController() as UIViewController
+        let rootViewController = GetStartedViewController() as UIViewController
         let navigationController = UINavigationController(rootViewController: rootViewController)
         navigationController.navigationBar.barTintColor = .black
         navigationController.navigationBar.tintColor = .white
         let navigationControllerTextAttribute = [NSAttributedString.Key.foregroundColor : UIColor.white]
         navigationController.navigationBar.titleTextAttributes = navigationControllerTextAttribute
+        navigationController.setNavigationBarHidden(true, animated: false)
         rootViewController.view.backgroundColor = .black
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
