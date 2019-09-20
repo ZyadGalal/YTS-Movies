@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol Movies : class{
+protocol MoviesView : class{
     func getMoviesNumber(movies : Int)
     func fetchDataSuccess()
     func fetchDataFailed(message : String)
@@ -18,11 +18,11 @@ protocol MovieCellView {
 }
 class MoviesPresenter  {
 
-    private weak var delegate : Movies?
+    private weak var movieView : MoviesView?
     private var interactor = MoviesListInteractor()
     private var movies : MoviesListModel?
-    init(delegate : Movies) {
-        self.delegate = delegate
+    init(view : MoviesView) {
+        self.movieView = view
     }
     func viewDidLoad() {
         getMovies()
@@ -30,11 +30,11 @@ class MoviesPresenter  {
     func getMovies(){
         interactor.getMovies(Success: { [weak self] (lists) in
             guard let self = self else { return }
-            self.delegate?.getMoviesNumber(movies: lists.data.movies.count)
+            self.movieView?.getMoviesNumber(movies: lists.data.movies.count)
             self.movies = lists
-            self.delegate?.fetchDataSuccess()
+            self.movieView?.fetchDataSuccess()
         }) { (error) in
-            self.delegate?.fetchDataFailed(message: error)
+            self.movieView?.fetchDataFailed(message: error)
         }
     }
 
@@ -42,5 +42,8 @@ class MoviesPresenter  {
         guard let movie = movies?.data.movies[index] else {return}
         	
         cell.getMoviesInfo(coverURL: movie.mediumCoverImage)
+    }
+    func didSelectCell (at index : Int){
+        
     }
 }

@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationItem.setHidesBackButton(true, animated: false)
         configreCollectionView()
-        presenter = MoviesPresenter(delegate: self)
+        presenter = MoviesPresenter(view: self)
         presenter.viewDidLoad()
     }
     
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         collectionView.delegate = self
         collectionView.pin(to: view, with: 0)
 
-        collectionView.register(MoviesCollectionViewCell.self, forCellWithReuseIdentifier: "movieCell")
+        collectionView.register(MoviesCollectionViewCell.self)
         
     }
     deinit {
@@ -54,7 +54,7 @@ extension ViewController : UICollectionViewDataSource , UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as! MoviesCollectionViewCell
+        let cell = collectionView.dequeueCell(for: indexPath) as MoviesCollectionViewCell	
         presenter.config(cell: cell, at: indexPath.row)
         return cell
     }
@@ -72,7 +72,7 @@ extension UINavigationController {
         return .lightContent
     }
 }
-extension ViewController : Movies{
+extension ViewController : MoviesView{
     func getMoviesNumber(movies: Int) {
         moviesNumber = movies
     }

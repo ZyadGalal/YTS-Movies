@@ -13,6 +13,8 @@
 		325C0584233495C000AE6432 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325C0583233495C000AE6432 /* NetworkClient.swift */; };
 		325C05872334985500AE6432 /* MoviesListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325C05862334985500AE6432 /* MoviesListInteractor.swift */; };
 		325C058B2334A3E500AE6432 /* GetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325C058A2334A3E500AE6432 /* GetStartedViewController.swift */; };
+		325C058E2334B64C00AE6432 /* MoviesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325C058D2334B64C00AE6432 /* MoviesRouter.swift */; };
+		325C05902334B99500AE6432 /* CollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325C058F2334B99500AE6432 /* CollectionViewExtensions.swift */; };
 		328685C82330AB42009B77EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328685C72330AB42009B77EF /* AppDelegate.swift */; };
 		328685CA2330AB42009B77EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328685C92330AB42009B77EF /* ViewController.swift */; };
 		328685CF2330AB45009B77EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 328685CE2330AB45009B77EF /* Assets.xcassets */; };
@@ -54,6 +56,8 @@
 		325C0583233495C000AE6432 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		325C05862334985500AE6432 /* MoviesListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListInteractor.swift; sourceTree = "<group>"; };
 		325C058A2334A3E500AE6432 /* GetStartedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedViewController.swift; sourceTree = "<group>"; };
+		325C058D2334B64C00AE6432 /* MoviesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRouter.swift; sourceTree = "<group>"; };
+		325C058F2334B99500AE6432 /* CollectionViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewExtensions.swift; sourceTree = "<group>"; };
 		328685C42330AB42009B77EF /* ytsInCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ytsInCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		328685C72330AB42009B77EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		328685C92330AB42009B77EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +151,14 @@
 			path = GetStartedScene;
 			sourceTree = "<group>";
 		};
+		325C058C2334B63800AE6432 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				325C058D2334B64C00AE6432 /* MoviesRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		328685BB2330AB42009B77EF = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +216,7 @@
 		328D8EF32333AC8700FB2DCC /* MoviesListScene */ = {
 			isa = PBXGroup;
 			children = (
+				325C058C2334B63800AE6432 /* Router */,
 				325C05852334983400AE6432 /* Interactor */,
 				328D8EFC2333B01C00FB2DCC /* Model */,
 				328D8EF62333ACC900FB2DCC /* presenter */,
@@ -259,6 +272,7 @@
 			children = (
 				328D8EEF23339E6600FB2DCC /* Rating.swift */,
 				328685F52330B7D7009B77EF /* UIView + ext.swift */,
+				325C058F2334B99500AE6432 /* CollectionViewExtensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -514,6 +528,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				325C05902334B99500AE6432 /* CollectionViewExtensions.swift in Sources */,
 				328D8EF22333A82500FB2DCC /* MoviesPresenter.swift in Sources */,
 				325C05822334932400AE6432 /* Constants.swift in Sources */,
 				325C05802334919B00AE6432 /* APIRouter.swift in Sources */,
@@ -524,6 +539,7 @@
 				328D8EEE2333869300FB2DCC /* MovieDetailsViewController.swift in Sources */,
 				328685CA2330AB42009B77EF /* ViewController.swift in Sources */,
 				328D8EFA2333ACF700FB2DCC /* MovieDetailsPresenter.swift in Sources */,
+				325C058E2334B64C00AE6432 /* MoviesRouter.swift in Sources */,
 				328685F62330B7D7009B77EF /* UIView + ext.swift in Sources */,
 				328685C82330AB42009B77EF /* AppDelegate.swift in Sources */,
 				328685F82330BBD3009B77EF /* MoviesCollectionViewCell.swift in Sources */,
