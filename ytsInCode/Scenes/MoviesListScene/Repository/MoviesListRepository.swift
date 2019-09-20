@@ -9,8 +9,6 @@
 import Foundation
 
 class MoviesListInteractor{
-
-    
     func getMovies (completionHandler : @escaping (Result<MoviesListModel,Error>) -> ()){
         NetworkClient.performRequest(_type: MoviesListModel.self, router: .getMovies, completion: completionHandler)
     }
