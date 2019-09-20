@@ -28,13 +28,16 @@ class MoviesPresenter  {
         getMovies()
     }
     func getMovies(){
-        interactor.getMovies(Success: { [weak self] (lists) in
+        interactor.getMovies { [weak self](result) in
             guard let self = self else { return }
-            self.movieView?.getMoviesNumber(movies: lists.data.movies.count)
-            self.movies = lists
-            self.movieView?.fetchDataSuccess()
-        }) { (error) in
-            self.movieView?.fetchDataFailed(message: error)
+            switch result{
+            case .success(let lists):
+                self.movieView?.getMoviesNumber(movies: lists.data.movies.count)
+                self.movies = lists
+                self.movieView?.fetchDataSuccess()
+            case .failure(let error):
+                self.movieView?.fetchDataFailed(message: error.localizedDescription)
+            }
         }
     }
 
