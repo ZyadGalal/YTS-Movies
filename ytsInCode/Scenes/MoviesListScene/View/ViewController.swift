@@ -9,19 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    private lazy var mainView: MoviesListView = {
+        return MoviesListView(frame: view.frame)
+    }()
     var presenter : MoviesPresenter!
     var moviesNumber : Int = 0
     
-    let collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = UICollectionView.ScrollDirection.vertical
-        layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = 0
-        let collection = UICollectionView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), collectionViewLayout: layout)
-        collection.isScrollEnabled = true
-        return collection
-    }()
+    override func loadView() {
+        super.loadView()
+        view = mainView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "YTS Movies"
@@ -35,13 +34,10 @@ class ViewController: UIViewController {
     
     func configreCollectionView ()
     {
-        view.addSubview(collectionView)
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.pin(to: view, with: 0)
-
-        collectionView.register(MoviesCollectionViewCell.self)
-        
+        view.addSubview(mainView.collectionView)
+        mainView.collectionView.dataSource = self
+        mainView.collectionView.delegate = self
+        mainView.collectionView.register(MoviesCollectionViewCell.self)
     }
     deinit {
         print("i do it")
@@ -54,7 +50,7 @@ extension ViewController : UICollectionViewDataSource , UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueCell(for: indexPath) as MoviesCollectionViewCell	
+        let cell = collectionView.dequeueCell(for: indexPath) as MoviesCollectionViewCell
         presenter.config(cell: cell, at: indexPath.row)
         return cell
     }
@@ -77,7 +73,7 @@ extension ViewController : MoviesView{
         moviesNumber = movies
     }
     func fetchDataSuccess() {
-        collectionView.reloadData()
+        mainView.collectionView.reloadData()
     }
     func fetchDataFailed(message: String) {
         print(message)

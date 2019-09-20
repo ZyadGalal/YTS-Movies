@@ -17,6 +17,6 @@ class MovieDetailsPresenter {
         self.movieDetails = view
     }
     func viewDidLoad(){
-        movieDetails?.getMovieImage(image: "cd", name: "zozz", description: "zyad mahmoud galal el din soliman ", rating: 5)
+        movieDetails?.getMovieImage(image: "cd", name: "zozz", description: "zyad mahmoud galal el din soliman zyad mahmoud galal el din solimanzyad mahmoud galal el din solimanzyad mahmoud galal el din solimanzyad mahmoud galal el din solimanzyad mahmoud galal el din solimanzyad mahmoud galal el din solimanzyad mahmoud galal el din solimanzyad mahmoud galal el din solimanzyad mahmoud galal el din solimanzyad mahmoud galal el din solimanzyad mahmoud galal el din solimanzyad mahmoud galal el din solimanzyad mahmoud galal el din solimanzyad mahmoud galal el din solimanzyad mahmoud galal el din solimanzyad mahmoud galal el din soliman ", rating: 5)
     }
 }
