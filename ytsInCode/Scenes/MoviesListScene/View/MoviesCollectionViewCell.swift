@@ -32,10 +32,10 @@ class MoviesCollectionViewCell: UICollectionViewCell {
         movieImage.pin(to: self, with: 8)
     }
 }
-extension MoviesCollectionViewCell : MovieCellView{
-    func getMoviesInfo(coverURL: String) {
+extension MoviesCollectionViewCell : ConfigurableCell{
+    func configure(model: String) {
         movieImage.kf.indicatorType = .activity
-        movieImage.kf.setImage(with: URL(string: coverURL)!)
+        movieImage.kf.setImage(with: URL(string: model)!)
     }
     
     

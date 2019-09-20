@@ -51,7 +51,7 @@ extension ViewController : UICollectionViewDataSource , UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueCell(for: indexPath) as MoviesCollectionViewCell
-        presenter.config(cell: cell, at: indexPath.row)
+        presenter.configure(cell: AnyConfigurableCell(cell), at: indexPath.row)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

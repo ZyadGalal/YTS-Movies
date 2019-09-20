@@ -13,9 +13,7 @@ protocol MoviesView : class{
     func fetchDataSuccess()
     func fetchDataFailed(message : String)
 }
-protocol MovieCellView {
-    func getMoviesInfo(coverURL : String)
-}
+
 class MoviesPresenter  {
 
     private weak var movieView : MoviesView?
@@ -41,10 +39,10 @@ class MoviesPresenter  {
         }
     }
 
-    func config(cell : MovieCellView,at index : Int){
+    func configure(cell: AnyConfigurableCell<String>, at index: Int){
         guard let movie = movies?.data.movies[index] else {return}
         	
-        cell.getMoviesInfo(coverURL: movie.mediumCoverImage)
+        cell.configure(model: movie.mediumCoverImage)
     }
     func didSelectCell (at index : Int){
         
